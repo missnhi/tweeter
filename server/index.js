@@ -2,12 +2,12 @@
 
 // Basic express setup:
 
-const PORT          = 8080;
-const express       = require("express");
-const bodyParser    = require("body-parser");
-const app           = express();
+const PORT = 8080;
+const express = require("express");
+const bodyParser = require("body-parser");
+const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 // The in-memory database of tweets. It's a basic object with an array in it.
@@ -22,7 +22,7 @@ const db = require("./lib/in-memory-db");
 // require it and pass the `db` parameter immediately:
 const DataHelpers = require("./lib/data-helpers.js")(db);
 
-// Update the dates for the initial tweets (data-files/initial-tweets.json).
+// Update the dates for the initial tweets (data-files/initial-tweets.json) immediately.
 require("./lib/date-adjust")();
 
 // The `tweets-routes` module works similarly: we pass it the `DataHelpers` object
@@ -30,8 +30,10 @@ require("./lib/date-adjust")();
 const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 
 // Mount the tweets routes at the "/tweets" path prefix:
+// this line tells the Express application to use the tweetsRoutes
+// router for any requests that start with /tweets.
 app.use("/tweets", tweetsRoutes);
 
 app.listen(PORT, () => {
-  console.log("Example app listening on port " + PORT);
+  console.log("Tweeter app listening on port " + PORT);
 });
