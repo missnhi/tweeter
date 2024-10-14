@@ -34,3 +34,40 @@ main {
     padding: 20px; /* Optional: Add some padding for better readability */
 }
 
+/* For tablets and larger screens */
+@media (min-width: 768px) {
+    .new-tweet {
+        max-width: 70%;
+    }
+
+    .tweet-container {
+        max-width: 70%;
+    }
+}
+
+/* For desktops and larger screens */
+@media (min-width: 1024px) {
+    .new-tweet {
+        max-width: 50%;
+    }
+
+    .tweet-container {
+        max-width: 50%;
+    }
+}
+
+/* For smaller screens */
+@media (max-width: 767px) {
+    .new-tweet {
+        padding: 20px;
+    }
+
+    .tweet-container article {
+        padding: 20px;
+    }
+
+    .tweet-container header img {
+        width: 40px;
+    }
+}
+
