@@ -1,5 +1,5 @@
 /* header.css */
-header {
+.site-header {
     width: 100%;
     height: 400px;
     background-color: #cc9900; /* Example background color for the avatar */
@@ -10,7 +10,7 @@ header {
     padding: 20px 0;
 }
 
-header .avatar {
+.site-header .avatar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,7 @@ header .avatar {
     margin-bottom: 10px;
 }
 
-header .name {
+.site-header .name {
     text-align: center;
     font-family: 'Source Sans 3', sans-serif;
     color: #333333;

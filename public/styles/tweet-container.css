@@ -6,48 +6,63 @@ body {
 }
 
 .tweet-container {
-    margin: 20px;
+    width: 100%;
+    max-width: 90%; /* Match the max-width of the form */
+    margin: 20px auto;
+    padding: 0;
 }
 
-article {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
+
+.tweet-container article {
+    border: 5px solid #5e2d2d;
+    padding: 30px;
+    margin-bottom: 15px;
     transition: box-shadow 0.3s;
+    border-radius: 5px; /* Rounded corners for a softer look */
+    /*position: relative;*/
+    box-sizing: border-box;
+
 }
 
-article:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.tweet-container article:hover {
+    box-shadow: rgba(100, 62, 200, 0.4) 5px 5px, rgba(100, 62, 200, 0.3) 10px 10px, rgba(100, 62, 200, 0.2) 15px 15px, rgba(100, 62, 200, 0.1) 20px 20px;
 }
 
-header {
+.tweet-container header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    margin-bottom: 10px;
 }
 
-header div:first-child {
+.tweet-container header div:first-child {
     display: flex;
     align-items: center;
 }
 
-header img {
+.tweet-container header img {
     border-radius: 50%;
     margin-right: 10px;
+    width: 50px;
+
 }
 
-footer {
+.tweet-container footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-footer div:last-child i {
+.tweet-container footer div:last-child i {
     margin-left: 10px;
     cursor: pointer;
     transition: color 0.3s;
 }
 
-footer div:last-child i:hover {
-    color: #007bff;
+.tweet-container footer div:last-child i:hover {
+    color: #3628b7;
+}
+
+.tweet-container i {
+    margin-right: 5px; /* Adjust the value as needed */
 }

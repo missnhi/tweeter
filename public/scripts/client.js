@@ -1,7 +1,7 @@
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
+ * Load the tweets in the initial-tweets.json file and render them to the page
  */
 
 $(document).ready(function() {
@@ -23,9 +23,13 @@ $(document).ready(function() {
               </div>
             </header>
             <p>${tweet.content.text}</p>
+            <hr style="border: 3px solid #333; ">
             <footer>
               <div>
-                <p>${new Date(tweet.created_at).toLocaleDateString()}</p>
+                <p>${(new Date() - new Date(tweet.created_at)) / (1000 * 60 * 60 * 24) < 30
+          ? `${Math.floor((new Date() - new Date(tweet.created_at)) / (1000 * 60 * 60 * 24))} days ago`
+          : new Date(tweet.created_at).toLocaleDateString()}
+                </p>
               </div>
               <div>
                 <i class="fa-solid fa-retweet"></i>
