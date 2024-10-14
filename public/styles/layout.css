@@ -20,6 +20,7 @@ body {
     background-color: #f4f1ec;
     font-size: 24px;
     font-family: 'Source Sans 3', sans-serif;
+    padding-top: 120px; /* Adjust this if the nav bar height changes */
 }
 
 /*
