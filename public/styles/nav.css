@@ -6,24 +6,24 @@ nav {
     padding: 0 1.5em;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 /*<span> within the <nav> uses Bungee as its default font-family*/
-nav span {
+.nav-title {
     font-family: 'Bungee', cursive;
-}
-
-.left-nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 50%;
 }
 
 .right-nav {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    width: 50%;
+    gap: 0.5em; /* Adjust the gap between the text and the icon as needed */
+}
+
+.right-nav span {
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+.right-nav i {
+    font-size: 1.5em;
 }
