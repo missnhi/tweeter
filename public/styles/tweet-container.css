@@ -1,0 +1,53 @@
+/* tweet-container.css */
+
+/* General styles */
+body {
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+.tweet-container {
+    margin: 20px;
+}
+
+article {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: box-shadow 0.3s;
+}
+
+article:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header div:first-child {
+    display: flex;
+    align-items: center;
+}
+
+header img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer div:last-child i {
+    margin-left: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+footer div:last-child i:hover {
+    color: #007bff;
+}

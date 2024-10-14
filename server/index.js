@@ -6,6 +6,9 @@ const PORT = 8080;
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+const path = require('path');
+
+app.use('/data', express.static(path.join(__dirname, 'data-files')));
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
