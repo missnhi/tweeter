@@ -1,34 +1,29 @@
 nav {
-    height: 120px;
-    width: 100%;
-    background-color: #4056A1;
-    color: #FFFFFF;
-    padding: 0 1.5em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Ensure the nav bar is above other content */
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding: 0 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
-
-/*<span> within the <nav> uses Bungee as its default font-family*/
-.nav-title {
-    font-family: 'Bungee', cursive;
+nav .nav-title {
+  font-family: "Bungee", cursive;
 }
-
-.right-nav {
-    display: flex;
-    align-items: center;
-    gap: 0.5em; /* Adjust the gap between the text and the icon as needed */
-    padding: 0 1.5em;
+nav .right-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0 1.5em;
 }
-
-.right-nav span {
-    font-family: 'Source Sans 3', sans-serif;
+nav .right-nav span {
+  font-family: "Source Sans 3", sans-serif;
 }
-
-.right-nav i {
-    font-size: 1.5em;
+nav .right-nav i {
+  font-size: 1.5em;
 }

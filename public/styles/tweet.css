@@ -1,68 +1,64 @@
 /* tweet.css */
-
 /* General styles */
 body {
-    font-family: 'Source Sans 3', sans-serif;
+  font-family: "Source Sans 3", sans-serif;
 }
 
 .tweet-container {
-    width: 100%;
-    max-width: 90%; /* Match the max-width of the form */
-    margin: 20px auto;
-    padding: 0;
+  width: 100%;
+  max-width: 90%; /* Match the max-width of the form */
+  margin: 20px auto;
+  padding: 0;
 }
 
-
 .tweet-container article {
-    border: 5px solid #5e2d2d;
-    padding: 30px;
-    margin-bottom: 15px;
-    transition: box-shadow 0.3s;
-    border-radius: 5px; /* Rounded corners for a softer look */
-    /*position: relative;*/
-    box-sizing: border-box;
-
+  border: 5px solid #5e2d2d;
+  padding: 30px;
+  margin-bottom: 15px;
+  transition: box-shadow 0.3s;
+  border-radius: 5px; /* Rounded corners for a softer look */
+  /*position: relative;*/
+  box-sizing: border-box;
 }
 
 .tweet-container article:hover {
-    box-shadow: rgba(100, 62, 200, 0.4) 5px 5px, rgba(100, 62, 200, 0.3) 10px 10px, rgba(100, 62, 200, 0.2) 15px 15px, rgba(100, 62, 200, 0.1) 20px 20px;
+  box-shadow: rgba(100, 62, 200, 0.4) 5px 5px, rgba(100, 62, 200, 0.3) 10px 10px, rgba(100, 62, 200, 0.2) 15px 15px, rgba(100, 62, 200, 0.1) 20px 20px;
 }
 
 .tweet-container header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
 }
 
 .tweet-container header div:first-child {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .tweet-container header img {
-    border-radius: 50%;
-    margin-right: 10px;
-    width: 50px;
-
+  border-radius: 50%;
+  margin-right: 10px;
+  width: 50px;
 }
 
 .tweet-container footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .tweet-container footer div:last-child i {
-    margin-left: 10px;
-    cursor: pointer;
-    transition: color 0.3s;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 .tweet-container footer div:last-child i:hover {
-    color: #3628b7;
+  color: #3628b7;
 }
 
 .tweet-container i {
-    margin-right: 5px; /* Adjust the value as needed */
+  margin-right: 5px; /* Adjust the value as needed */
 }
