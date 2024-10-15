@@ -29,12 +29,11 @@ $(document).ready(function() {
     }
   };
   
-  // Handle input event
   $textarea.on('input', function() {
     if (isTypingEffect) return;
     
     clearTimeout(typingTimeout);
-    const inputText = $(this).val(); // Get the text in the textarea
+    const inputText = $(this).val(); // get the text in the textarea
     let index = $textarea.data('current-index') || 0; // Keep track of typing index
     
     // If the user is deleting characters, immediately update the counter
@@ -52,9 +51,8 @@ $(document).ready(function() {
       if (index < inputText.length) {
         $textarea.val(inputText.substring(0, index + 1)); // Add one character at a time
         index++;
-        $textarea.data('current-index', index); // Save the progress
+        $textarea.data('current-index', index); // save the progress
         
-        // Update the counter for each character typed
         updateCounter();
         
         typingTimeout = setTimeout(typeCharacter, typingSpeed);

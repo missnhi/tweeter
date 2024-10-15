@@ -4,51 +4,60 @@
  * Do not modify these two selectors, please
  */
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *, *:before, *:after {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 /*
  * Global layout stuff
  */
 body {
-  color: #545149;
-  background-color: #f4f1ec;
-  font-size: 24px;
-  font-family: "Source Sans 3", sans-serif;
-  padding-top: 120px; /* Adjust this if the nav bar height changes */
+    color: #545149;
+    background-color: #f4f1ec;
+    font-size: 24px;
+    font-family: "Source Sans 3", sans-serif;
+    padding-top: 120px; /* Adjust this if the nav bar height changes */
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 main {
-  width: 90%;
-  margin: 0 auto; /* Center align to the body */
-  background-color: inherit; /* Same background color as the body */
-  padding: 20px; /* Optional: Add some padding for better readability */
+    width: 90%;
+    margin: 0 auto; /* Center align to the body */
+    background-color: inherit; /* Same background color as the body */
+    padding: 20px; /* Optional: Add some padding for better readability */
 }
 
 /* Tablet Styles */
 @media only screen and (min-width: 868px) {
-  .layout {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  .site-header {
-    width: 33.3%;
-    padding: 20px;
-    margin: 50px;
-  }
-  .container {
-    width: 66.7%;
-    flex-shrink: 0;
-  }
-  .footer {
-    clear: both;
-  }
+    .layout {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .site-header {
+        width: 33.3%;
+        padding: 20px;
+        margin: 50px;
+    }
+
+    .container {
+        width: 66.7%;
+        flex-shrink: 0;
+    }
+
+    .footer {
+        clear: both;
+    }
+}
+
+@media (max-width: 1024px) {
+    .layout {
+        flex-direction: column;
+    }
 }
