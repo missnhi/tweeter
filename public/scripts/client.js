@@ -8,32 +8,32 @@ $(document).ready(function() {
   
   // Function to create a tweet element takes in a tweet object and is responsible for
   // returning a tweet <article> element containing the entire HTML structure of the tweet.
+  //Use jQuery's text() method to safely insert the tweet content.
   const createTweetElement = (tweet) => {
-    return `
-      <article>
-        <header>
-          <div>
-            <img src="${tweet.user.avatars}" alt="${tweet.user.name}'s avatar">
-            <h2>${tweet.user.name}</h2>
-          </div>
-          <div>
-            <h3>${tweet.user.handle}</h3>
-          </div>
-        </header>
-        <p>${tweet.content.text}</p>
-        <hr style="border: 3px solid #333;">
-        <footer>
-          <div>
-            <p>${timeago.format(tweet.created_at)}</p>
-          </div>
-          <div>
-            <i class="fa-solid fa-retweet"></i>
-            <i class="fa-solid fa-flag"></i>
-            <i class="fa-solid fa-heart"></i>
-          </div>
-        </footer>
-      </article>
-    `;
+    const $tweet = $('<article>').append(
+      $('<header>').append(
+        $('<div>').append(
+          $('<img>').attr('src', tweet.user.avatars).attr('alt', `${tweet.user.name}'s avatar`),
+          $('<h2>').text(tweet.user.name)
+        ),
+        $('<div>').append(
+          $('<h3>').text(tweet.user.handle)
+        )
+      ),
+      $('<p>').text(tweet.content.text),
+      $('<hr>').css('border', '3px solid #333'),
+      $('<footer>').append(
+        $('<div>').append(
+          $('<p>').text(timeago.format(tweet.created_at))
+        ),
+        $('<div>').append(
+          $('<i>').addClass('fa-solid fa-retweet'),
+          $('<i>').addClass('fa-solid fa-flag'),
+          $('<i>').addClass('fa-solid fa-heart')
+        )
+      )
+    );
+    return $tweet.prop('outerHTML');
   };
   
   // Function to render tweets in reverse chronological order
@@ -52,13 +52,14 @@ $(document).ready(function() {
     $.ajax({
       type: 'GET',
       url: '/tweets',
-      success: function(tweets) {
+    })
+      .done(function(tweets) {
         renderTweets(tweets);
-      },
-      error: function(jqxhr, textStatus, error) {
+      })
+      .fail(function(jqxhr, textStatus, error) {
         console.error("Request Failed: " + textStatus + ", " + error);
-      }
-    });
+        alert("Failed to load tweets. Please try again later.");
+      });
   };
   
   // Load initial tweets on page load
@@ -68,6 +69,23 @@ $(document).ready(function() {
   $('form').on('submit', function(event) {
     event.preventDefault();
     
+    //validate the form data
+    const tweetText = $('#tweet-text').val().trim();
+    const $errorContainer = $('.error-container'); //jquery error container
+    
+    // Clear previous error messages
+    $errorContainer.text('').hide();
+    
+    if (!tweetText) {
+      $errorContainer.text('Tweet cannot be empty.').slideDown();
+      return;
+    }
+    
+    if (tweetText.length > 140) {
+      $errorContainer.text('Tweet cannot exceed 140 characters.').slideDown();
+      return;
+    }
+    
     // serialize the form data
     const formData = $(this).serialize();
     
@@ -75,26 +93,30 @@ $(document).ready(function() {
     $.ajax({
       type: 'POST',
       url: '/tweets',
-      data: formData,
-      success: function(response) {
-        console.log("New tweet added:", response); // Debugging log
-        // Assuming the server returns the new tweet as JSON
-        const tweet = response;
-        const $tweetContainer = $('.tweet-container');
+      data: formData
+    })
+      .done(function(response, textStatus, jqxhr) {
+        const contentType = jqxhr.getResponseHeader("content-type") || "";
+        console.log("Response Content-Type:", contentType);
+        console.log("Response:", response);
         
-        // Create a new tweet element
-        const $tweet = createTweetElement(tweet);
-        
-        // Prepend the new tweet to the tweet container
-        $tweetContainer.prepend($tweet);
-        
-        // Clear the form
-        $('form')[0].reset();
-        $('.counter').text('140');
-      },
-      error: function(jqxhr, textStatus, error) {
+        //check if the response is in JSON format
+        if (contentType.includes("application/json")) {
+          console.log("New tweet added:", response);
+          const tweet = response;
+          const $tweetContainer = $('.tweet-container');
+          const tweetHTML = createTweetElement(tweet);
+          $tweetContainer.prepend(tweetHTML);
+          $('form')[0].reset();
+          $('.counter').text('140');
+        } else {
+          console.error("Unexpected response format");
+          alert("Failed to add tweet. Unexpected response format");
+        }
+      })
+      .fail(function(jqxhr, textStatus, error) {
         console.error("Request Failed: " + textStatus + ", " + error);
-      }
-    });
+        alert("Failed to add tweet. Please try again later.");
+      });
   });
 });
