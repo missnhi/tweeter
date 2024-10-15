@@ -9,7 +9,7 @@ $(document).ready(function() {
   // Function to create a tweet element takes in a tweet object and is responsible for
   // returning a tweet <article> element containing the entire HTML structure of the tweet.
   const createTweetElement = (tweet) => {
-    return $(`
+    return `
       <article>
         <header>
           <div>
@@ -24,10 +24,7 @@ $(document).ready(function() {
         <hr style="border: 3px solid #333;">
         <footer>
           <div>
-            <p>${(new Date() - new Date(tweet.created_at)) / (1000 * 60 * 60 * 24) < 30
-      ? `${Math.floor((new Date() - new Date(tweet.created_at)) / (1000 * 60 * 60 * 24))} days ago`
-      : new Date(tweet.created_at).toLocaleDateString()}
-            </p>
+            <p>${timeago.format(tweet.created_at)}</p>
           </div>
           <div>
             <i class="fa-solid fa-retweet"></i>
@@ -36,21 +33,21 @@ $(document).ready(function() {
           </div>
         </footer>
       </article>
-    `);
+    `;
   };
   
-  // Function to render tweets:
+  // Function to render tweets in reverse chronological order
   // taking in an array of tweet objects and then appending each one to the #tweets-container.
   const renderTweets = (tweets) => {
     const $tweetContainer = $('.tweet-container');
     $tweetContainer.empty();
     tweets.forEach(tweet => {
       const $tweet = createTweetElement(tweet);
-      $tweetContainer.append($tweet);
+      $tweetContainer.prepend($tweet);
     });
   };
   
-  // Load initial tweets
+  // Load initial tweets: fetching tweets from the http://localhost:8080/tweets page
   const loadTweets = () => {
     $.ajax({
       type: 'GET',
