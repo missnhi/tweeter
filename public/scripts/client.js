@@ -5,7 +5,9 @@
  */
 
 $(document).ready(function() {
-  // Function to create a tweet element
+  
+  // Function to create a tweet element takes in a tweet object and is responsible for
+  // returning a tweet <article> element containing the entire HTML structure of the tweet.
   const createTweetElement = (tweet) => {
     return $(`
       <article>
@@ -37,7 +39,8 @@ $(document).ready(function() {
     `);
   };
   
-  // Function to render tweets
+  // Function to render tweets:
+  // taking in an array of tweet objects and then appending each one to the #tweets-container.
   const renderTweets = (tweets) => {
     const $tweetContainer = $('.tweet-container');
     $tweetContainer.empty();
@@ -64,19 +67,20 @@ $(document).ready(function() {
   // Load initial tweets on page load
   loadTweets();
   
-  // Handle form submission
+  // add event listener for submit and prevent its default behaviour.
   $('form').on('submit', function(event) {
-    event.preventDefault(); // prevent the default form submission
+    event.preventDefault();
     
-    // Serialize the form data
+    // serialize the form data
     const formData = $(this).serialize();
     
-    // Create an AJAX POST request
+    // make an AJAX POST request
     $.ajax({
       type: 'POST',
       url: '/tweets',
       data: formData,
       success: function(response) {
+        console.log("New tweet added:", response); // Debugging log
         // Assuming the server returns the new tweet as JSON
         const tweet = response;
         const $tweetContainer = $('.tweet-container');
