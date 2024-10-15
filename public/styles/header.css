@@ -1,6 +1,6 @@
 /* header.css */
 .site-header {
-    width: 100%;
+    /*width: 100%;*/
     height: 400px;
     background-color: #cc9900; /* Example background color for the avatar */
     background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");

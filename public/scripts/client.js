@@ -77,12 +77,12 @@ $(document).ready(function() {
     $errorContainer.text('').hide();
     
     if (!tweetText) {
-      $errorContainer.text('Tweet cannot be empty.').slideDown();
+      $errorContainer.text('uhno! Tweet cannot be empty.≡(▔﹏▔)≡').slideDown();
       return;
     }
     
     if (tweetText.length > 140) {
-      $errorContainer.text('Tweet cannot exceed 140 characters.').slideDown();
+      $errorContainer.text('BOOOO you exceed 140 characters(╯‵□′)╯︵┻━┻').slideDown();
       return;
     }
     
@@ -103,12 +103,9 @@ $(document).ready(function() {
         //check if the response is in JSON format
         if (contentType.includes("application/json")) {
           console.log("New tweet added:", response);
-          const tweet = response;
-          const $tweetContainer = $('.tweet-container');
-          const tweetHTML = createTweetElement(tweet);
-          $tweetContainer.prepend(tweetHTML);
           $('form')[0].reset();
           $('.counter').text('140');
+          loadTweets(); //call loadTweets to fetch and render all tweets
         } else {
           console.error("Unexpected response format");
           alert("Failed to add tweet. Unexpected response format");

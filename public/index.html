@@ -4,6 +4,8 @@
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
+
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
           type="text/css"/>
@@ -44,34 +46,38 @@
     </div>
 </nav>
 
-<header class="site-header">
-    <div>
-        <img src="/images/profile-hex.png">
-    </div>
-    <div>
-        <h2>Phoebe Amber</h2>
-    </div>
-</header>
+<div class="layout">
+    <header class="site-header">
+        <div>
+            <img src="/images/profile-hex.png">
+        </div>
+        <div>
+            <h2>Phoebe Amber</h2>
+        </div>
+    </header>
 
-<!-- Page-specific (main) content here -->
-<main class="container">
-    <h1>Welcome to Tweeter</h1>
+    <!-- Page-specific (main) content here -->
 
-    <section class="new-tweet">
-        <!--        <h2>Compose Tweet</h2>-->
-        <form action="/tweets" method="POST">
-            <label for="tweet-text">What are you humming about?</label>
-            <textarea name="text" id="tweet-text" placeholder="your day? your pets? your friends?"></textarea>
-            <div>
-                <button type="submit">Tweet</button>
-                <output name="counter" class="counter" for="tweet-text">140</output>
-            </div>
-        </form>
-    </section>
+    <main class="container">
+        <h1>Welcome to Tweeter</h1>
 
-    <section class="tweet-container">
-        <!-- Tweets will be dynamically loaded here -->
-    </section>
-</main>
+        <section class="new-tweet">
+            <!--        <h2>Compose Tweet</h2>-->
+            <form action="/tweets" method="POST">
+                <label for="tweet-text">What are you humming about?</label>
+                <textarea name="text" id="tweet-text" placeholder="your day? your pets? your friends?"></textarea>
+                <div>
+                    <button type="submit">Tweet</button>
+                    <output name="counter" class="counter" for="tweet-text">140</output>
+                </div>
+                <div class="error-container"></div>
+            </form>
+        </section>
+
+        <section class="tweet-container">
+            <!-- Tweets will be dynamically loaded here -->
+        </section>
+    </main>
+</div>
 </body>
 </html>

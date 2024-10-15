@@ -34,40 +34,27 @@ main {
     padding: 20px; /* Optional: Add some padding for better readability */
 }
 
-/* For tablets and larger screens */
-@media (min-width: 768px) {
-    .new-tweet {
-        max-width: 70%;
+
+/* Tablet Styles */
+@media only screen and (min-width: 868px) {
+    .layout {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
     }
 
-    .tweet-container {
-        max-width: 70%;
-    }
-}
-
-/* For desktops and larger screens */
-@media (min-width: 1024px) {
-    .new-tweet {
-        max-width: 50%;
-    }
-
-    .tweet-container {
-        max-width: 50%;
-    }
-}
-
-/* For smaller screens */
-@media (max-width: 767px) {
-    .new-tweet {
+    .site-header {
+        width: 33.3%;
         padding: 20px;
+        margin: 50px;
     }
 
-    .tweet-container article {
-        padding: 20px;
+    .container {
+        width: 66.7%;
+        flex-shrink: 0;
     }
 
-    .tweet-container header img {
-        width: 40px;
+    .footer {
+        clear: both;
     }
 }
-
