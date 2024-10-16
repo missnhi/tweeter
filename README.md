@@ -1,6 +1,6 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a simple, single-page Twitter clone with the "WOW" twist from Owen Wilson.
 
 This repository is the starter code for the project: with HTML, CSS, JS, jQuery and AJAX front-end skills, and Node, Express back-end skills.
 
@@ -46,4 +46,6 @@ https://tweeter-now.vercel.app/
     Each tweet includes a user avatar, adding a personal touch to the tweets.
 7.  Character Counter:\
     A character counter is included in the tweet form to help users keep track of the tweet length and ensure it stays within the allowed limit.
+8. "WOW" by Owen Wilson will play everytime a tweet is posted. 
+https://owen-wilson-wow-api.onrender.com/
 
