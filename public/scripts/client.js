@@ -3,6 +3,7 @@
  * jQuery is already loaded
  * Load the tweets in the initial-tweets.json file and render them to the page
  */
+import {fetchAndPlayWowAudio} from './wowAudioOwenWilson.js';
 
 $(document).ready(function() {
   
@@ -115,5 +116,9 @@ $(document).ready(function() {
         console.error("Request Failed: " + textStatus + ", " + error);
         alert("Failed to add tweet. Please try again later.");
       });
+    
+    
+    // Fetch and play a random "wow" audio
+    fetchAndPlayWowAudio();
   });
 });
